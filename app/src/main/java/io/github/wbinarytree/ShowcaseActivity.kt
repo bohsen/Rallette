@@ -19,86 +19,49 @@ class ShowcaseActivity : BaseActivity() {
             this.clone(this@ShowcaseActivity, R.layout.layout_tabs_vertical)
         }
     }
+    private val listener: (View) -> Unit = {
+        val target = icons.indexOf(it.id)
+        if (currentTab != target) {
+            TransitionManager.beginDelayedTransition(inner_tab_layout, getAnimation())
+            val constraintSet = getConstraintSet(target)
+            constraintSet.applyTo(inner_tab_layout)
+        }
+
+    }
+    private var currentTab: Int = 0
 
     private val texts = listOf(
-        R.id.overview_text,
-        R.id.account_text,
-        R.id.bills_text,
-        R.id.budgets_text,
-        R.id.settings_text
+            R.id.overview_text,
+            R.id.account_text,
+            R.id.bills_text,
+            R.id.budgets_text,
+            R.id.settings_text
     )
     private val icons = listOf(
-        R.id.overview_icon,
-        R.id.accounts_icon,
-        R.id.bills_icon,
-        R.id.budgets_icon,
-        R.id.settings_icon
+            R.id.overview_icon,
+            R.id.accounts_icon,
+            R.id.bills_icon,
+            R.id.budgets_icon,
+            R.id.settings_icon
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_tabs_vertical)
-
-
-        overview_icon.setOnClickListener {
-            TransitionManager.beginDelayedTransition(inner_tab_layout, getAnimation())
-            val constraintSet = getConstraintSet(0)
-            constraintSet.applyTo(inner_tab_layout)
-        }
-
-        accounts_icon.setOnClickListener {
-            TransitionManager.beginDelayedTransition(inner_tab_layout, getAnimation())
-            val constraintSet = getConstraintSet(1)
-            constraintSet.applyTo(inner_tab_layout)
-        }
-
-        bills_icon.setOnClickListener {
-            TransitionManager.beginDelayedTransition(inner_tab_layout, getAnimation())
-            val constraintSet = getConstraintSet(2)
-            constraintSet.applyTo(inner_tab_layout)
-        }
-        budgets_icon.setOnClickListener {
-            TransitionManager.beginDelayedTransition(inner_tab_layout, getAnimation())
-            val constraintSet = getConstraintSet(3)
-            constraintSet.applyTo(inner_tab_layout)
-        }
-
-        settings_icon.setOnClickListener {
-            TransitionManager.beginDelayedTransition(inner_tab_layout, getAnimation())
-            val constraintSet = getConstraintSet(4)
-            constraintSet.applyTo(inner_tab_layout)
-        }
+        overview_icon.setOnClickListener(listener)
+        accounts_icon.setOnClickListener(listener)
+        bills_icon.setOnClickListener(listener)
+        budgets_icon.setOnClickListener(listener)
+        settings_icon.setOnClickListener(listener)
     }
 
-    private fun getConstraintSet(position: Int): ConstraintSet {
+    private fun getConstraintSet(target: Int): ConstraintSet {
         val constraintSet = ConstraintSet().apply {
             clone(originLayout)
         }
-        texts.forEach { constraintSet.setVisibility(it, View.GONE) }
-        icons.forEach { constraintSet.setAlpha(it, 0.6f) }
-        when (position) {
-            0 -> {
-                constraintSet.setVisibility(R.id.overview_text, View.VISIBLE)
-                constraintSet.setAlpha(R.id.overview_icon, 1f)
-            }
-            1 -> {
-                constraintSet.setVisibility(R.id.account_text, View.VISIBLE)
-                constraintSet.setAlpha(R.id.accounts_icon, 1f)
-            }
-            2 -> {
-                constraintSet.setVisibility(R.id.bills_text, View.VISIBLE)
-                constraintSet.setAlpha(R.id.bills_icon, 1f)
-            }
-            3 -> {
-                constraintSet.setVisibility(R.id.budgets_text, View.VISIBLE)
-                constraintSet.setAlpha(R.id.budgets_icon, 1f)
-            }
-            4 -> {
-                constraintSet.setVisibility(R.id.settings_text, View.VISIBLE)
-                constraintSet.setAlpha(R.id.settings_icon, 1f)
-            }
-
-        }
+        texts.forEachIndexed { index, id -> constraintSet.setVisibility(id, if (index != target) View.GONE else View.VISIBLE) }
+        icons.forEachIndexed { index, id -> constraintSet.setAlpha(id, if (index != target) 0.6f else 1f) }
+        currentTab = target
         return constraintSet
     }
 
