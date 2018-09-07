@@ -28,7 +28,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            style="@style/H3Headline"
+            style="@style/H3Heading"
             android:includeFontPadding="false"
             android:text="H3 Headline"
             android:maxLines="1"

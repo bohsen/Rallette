@@ -109,16 +109,16 @@ public class MainActivity extends AppCompatActivity {
         // a layout description file pointing to the alternate constraint sets we want to swap in
         // at different breakpoints.
         mCl = findViewById(R.id.main);
-        mCl.setLayoutDescription(R.xml.main_resize);
+        mCl.loadLayoutDescription(R.xml.main_resize);
 
         mTabsCl = findViewById(R.id.inner_tab_layout);
-        mTabsCl.setLayoutDescription(R.xml.tabs_resize);
+        mTabsCl.loadLayoutDescription(R.xml.tabs_resize);
 
         mSectionCl = findViewById(R.id.section_container);
-        mSectionCl.setLayoutDescription(R.xml.section_resize);
+        mSectionCl.loadLayoutDescription(R.xml.section_resize);
 
         mAlertHeaderCl = findViewById(R.id.alert_header);
-        mAlertHeaderCl.setLayoutDescription(R.xml.alert_header_resize);
+        mAlertHeaderCl.loadLayoutDescription(R.xml.alert_header_resize);
 
         TextView tabText = findViewById(R.id.overview_text);
         RecyclerView alertsRv = findViewById(R.id.alerts_rv);

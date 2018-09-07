@@ -15,4 +15,9 @@
   -->
 <resources>
     <string name="app_name">Rally</string>
+    <string name="string_label_tab_overview">Overview</string>
+    <string name="string_label_tab_account">Accounts</string>
+    <string name="string_label_tab_bills">Bills</string>
+    <string name="string_label_tab_budgets">Budgets</string>
+    <string name="string_label_tab_settings">Settings</string>
 </resources>

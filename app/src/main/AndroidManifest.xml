@@ -22,10 +22,13 @@
         android:icon="@drawable/rally_app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.Splash">
+        android:theme="@style/Theme.MyApp">
         <activity
             android:name=".MainActivity"
             android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout">
+
+        </activity>
+        <activity android:name="io.github.wbinarytree.ShowcaseActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

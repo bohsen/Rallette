@@ -86,4 +86,13 @@
         <item name="android:letterSpacing">0.16</item>
     </style>
 
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/background_medium</item>
+        <item name="colorPrimaryDark">@color/background_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background_medium</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
 </resources>
