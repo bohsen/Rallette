@@ -1,7 +1,7 @@
 package io.github.wbinarytree.base
 
 import android.annotation.SuppressLint
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 
 @SuppressLint("Registered")

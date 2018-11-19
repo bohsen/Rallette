@@ -28,7 +28,7 @@
             android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout">
 
         </activity>
-        <activity android:name="io.github.wbinarytree.ShowcaseActivity" >
+        <activity android:name="io.github.wbinarytree.ui.main.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

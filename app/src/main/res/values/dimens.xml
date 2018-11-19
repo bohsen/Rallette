@@ -5,4 +5,6 @@
     <dimen name="dim_margin_tab_text">20dp</dimen>
     <dimen name="dim_margin_tab_icon">10dp</dimen>
     <dimen name="dim_margin_tab">32dp</dimen>
+    <dimen name="dim_pie_chart_account_size">320dp</dimen>
+    <dimen name="dim_pie_chart_hole_size">96dp</dimen>
 </resources>

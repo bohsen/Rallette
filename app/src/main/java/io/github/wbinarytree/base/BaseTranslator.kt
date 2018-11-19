@@ -1,11 +1,11 @@
 package io.github.wbinarytree.base
 
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import io.github.wbinarytree.RalletteApplication
 import io.github.wbinarytree.di.RepositoryComponent
 import io.reactivex.Observable
@@ -53,14 +53,14 @@ abstract class BaseTranslator<R, U> : AndroidViewModel(RalletteApplication.insta
 }
 
 
-inline fun <reified VM : ViewModel> FragmentActivity.getViewModel(): VM {
+inline fun <reified VM : ViewModel> androidx.fragment.app.FragmentActivity.getViewModel(): VM {
     return ViewModelProviders.of(this, BaseTranslator).get(VM::class.java)
 }
 
-inline fun <reified VM : ViewModel> FragmentActivity.getViewModel(id: String): VM {
+inline fun <reified VM : ViewModel> androidx.fragment.app.FragmentActivity.getViewModel(id: String): VM {
     return ViewModelProviders.of(this, BaseTranslator).get(id, VM::class.java)
 }
 
-inline fun <reified VM : ViewModel> Fragment.getViewModel(id: String): VM {
+inline fun <reified VM : ViewModel> androidx.fragment.app.Fragment.getViewModel(id: String): VM {
     return ViewModelProviders.of(activity!!, BaseTranslator).get(id, VM::class.java)
 }

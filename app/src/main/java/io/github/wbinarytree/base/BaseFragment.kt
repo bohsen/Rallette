@@ -1,7 +1,6 @@
 package io.github.wbinarytree.base
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.View
 
@@ -9,7 +8,7 @@ import android.view.View
 /**
  * Created by yaoda on 1/30/18.
  */
-open class BaseFragment : Fragment() {
+open class BaseFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
